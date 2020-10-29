@@ -1,11 +1,11 @@
 FROM node:12.19.0
 
+WORKDIR /app
 COPY . .
-WORKDIR ./
 
 # INSTALL DEPENDENCIES AND BUILD
-CMD ["npm", "install"]
-CMD ["npm", "build"]
+RUN yarn install
+RUN yarn build
 
 # SERVE FILES
 CMD ["npx", "serve", "build"]
